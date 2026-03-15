@@ -9,14 +9,17 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --forest: #1B5E20;
+            --green-dark: #3A8C3F;
             --green: #4CAF50;
-            --teal: #00897B;
-            --bg: #FAFAFA;
-            --text: #212121;
-            --text-light: #555;
+            --green-light: #E8F5E9;
+            --pink: #E84C88;
+            --orange: #F7A828;
+            --blue: #42A5F5;
+            --bg: #FEFEFE;
+            --text: #2D2D2D;
+            --text-light: #5A5A5A;
             --card-bg: #fff;
-            --border: #E0E0E0;
+            --border: #E8E8E8;
             --max-w: 960px;
         }
 
@@ -30,12 +33,13 @@
 
         /* NAV */
         nav {
-            background: var(--forest);
-            color: #fff;
+            background: #fff;
             padding: 0 24px;
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 8px rgba(0,0,0,.06);
         }
         .nav-inner {
             max-width: var(--max-w);
@@ -43,57 +47,83 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 56px;
+            height: 64px;
         }
         .nav-brand {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #fff;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+        }
+        .nav-brand img {
+            height: 44px;
+            width: auto;
         }
         .nav-links a {
-            color: rgba(255,255,255,.85);
+            color: var(--text-light);
             text-decoration: none;
             font-size: .9rem;
-            margin-left: 24px;
+            font-weight: 500;
+            margin-left: 28px;
             transition: color .2s;
         }
-        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover { color: var(--green-dark); }
 
         /* HERO */
         .hero {
-            background: linear-gradient(135deg, var(--forest) 0%, var(--teal) 100%);
+            background: linear-gradient(135deg, #43A047 0%, #66BB6A 50%, #81C784 100%);
             color: #fff;
             text-align: center;
             padding: 80px 24px 72px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,.07);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,.05);
+            border-radius: 50%;
         }
         .hero h1 {
             font-size: 2.4rem;
             font-weight: 800;
             margin-bottom: 16px;
             letter-spacing: -.02em;
+            position: relative;
         }
         .hero p {
             font-size: 1.15rem;
             max-width: 600px;
             margin: 0 auto 32px;
-            opacity: .92;
+            opacity: .94;
+            position: relative;
         }
         .badge-row {
             display: flex;
             gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
         }
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(255,255,255,.15);
-            border: 1px solid rgba(255,255,255,.25);
+            background: rgba(255,255,255,.18);
+            border: 1px solid rgba(255,255,255,.3);
             border-radius: 20px;
             padding: 8px 18px;
             font-size: .85rem;
@@ -106,7 +136,7 @@
         .section-title {
             font-size: 1.6rem;
             font-weight: 700;
-            color: var(--forest);
+            color: var(--green-dark);
             text-align: center;
             margin-bottom: 12px;
         }
@@ -126,18 +156,41 @@
         .feature-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 28px 24px;
+            transition: box-shadow .2s, transform .2s;
         }
-        .feature-icon { font-size: 1.8rem; margin-bottom: 12px; }
+        .feature-card:hover {
+            box-shadow: 0 4px 20px rgba(76,175,80,.12);
+            transform: translateY(-2px);
+        }
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--green-light);
+            border-radius: 12px;
+        }
         .feature-card h3 {
             font-size: 1.05rem;
             margin-bottom: 8px;
-            color: var(--forest);
+            color: var(--green-dark);
         }
         .feature-card p { font-size: .9rem; color: var(--text-light); }
 
+        /* Alternating accent colors on feature icons */
+        .feature-card:nth-child(2) .feature-icon { background: #FFF3E0; }
+        .feature-card:nth-child(3) .feature-icon { background: #E3F2FD; }
+        .feature-card:nth-child(4) .feature-icon { background: #FCE4EC; }
+        .feature-card:nth-child(5) .feature-icon { background: #FFF8E1; }
+        .feature-card:nth-child(6) .feature-icon { background: #E8F5E9; }
+
         /* AGE TIERS */
+        .age-section { background: var(--green-light); }
         .tiers {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -146,34 +199,39 @@
         .tier-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
+            border-radius: 14px;
+            padding: 28px 24px;
             text-align: center;
+            transition: box-shadow .2s;
         }
-        .tier-card .emoji { font-size: 2rem; margin-bottom: 8px; }
-        .tier-card h3 { font-size: 1rem; color: var(--forest); margin-bottom: 4px; }
+        .tier-card:hover { box-shadow: 0 4px 16px rgba(76,175,80,.1); }
+        .tier-card .emoji { font-size: 2.2rem; margin-bottom: 10px; }
+        .tier-card h3 { font-size: 1rem; color: var(--green-dark); margin-bottom: 6px; }
         .tier-card p { font-size: .85rem; color: var(--text-light); }
+        .tier-card:nth-child(1) { border-top: 3px solid var(--pink); }
+        .tier-card:nth-child(2) { border-top: 3px solid var(--orange); }
+        .tier-card:nth-child(3) { border-top: 3px solid var(--blue); }
 
         /* CTA */
         .cta-section {
-            background: var(--forest);
+            background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%);
             color: #fff;
             text-align: center;
             padding: 56px 24px;
         }
         .cta-section h2 { font-size: 1.5rem; margin-bottom: 12px; }
-        .cta-section p { opacity: .88; margin-bottom: 4px; font-size: .95rem; }
+        .cta-section p { opacity: .9; margin-bottom: 4px; font-size: .95rem; }
 
         /* FOOTER */
         footer {
-            background: #f5f5f5;
+            background: #f7f7f7;
             border-top: 1px solid var(--border);
             padding: 32px 24px;
             text-align: center;
             font-size: .82rem;
             color: var(--text-light);
         }
-        footer a { color: var(--forest); text-decoration: none; }
+        footer a { color: var(--green-dark); text-decoration: none; }
         footer a:hover { text-decoration: underline; }
         .footer-links { margin-bottom: 8px; }
         .footer-links a { margin: 0 12px; }
@@ -182,13 +240,16 @@
             .hero h1 { font-size: 1.7rem; }
             .hero { padding: 56px 20px 48px; }
             section { padding: 48px 20px; }
+            .nav-brand img { height: 36px; }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-inner">
-            <a href="index.html" class="nav-brand">&#127793; BetterNest Kids</a>
+            <a href="index.html" class="nav-brand">
+                <img src="images/Logo.png" alt="BetterNest Kids">
+            </a>
             <div class="nav-links">
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Service</a>
@@ -245,7 +306,7 @@
         </div>
     </section>
 
-    <section style="background:#f5f5f5;">
+    <section class="age-section">
         <div class="container">
             <h2 class="section-title">Designed for Every Age</h2>
             <p class="section-sub">Three age tiers with progressively unlocked features ensure kids get the right experience at every stage.</p>
