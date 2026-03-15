@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterNest Kids — Teach Kids Real-World Money Skills</title>
+    <meta name="description" content="BetterNest Kids teaches children ages 5-17 real-world money skills through chores, smart budgeting buckets, and an age-adaptive financial literacy curriculum.">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --forest: #1B5E20;
+            --green: #4CAF50;
+            --teal: #00897B;
+            --bg: #FAFAFA;
+            --text: #212121;
+            --text-light: #555;
+            --card-bg: #fff;
+            --border: #E0E0E0;
+            --max-w: 960px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            background: var(--forest);
+            color: #fff;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+        .nav-brand {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,.85);
+            text-decoration: none;
+            font-size: .9rem;
+            margin-left: 24px;
+            transition: color .2s;
+        }
+        .nav-links a:hover { color: #fff; }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--forest) 0%, var(--teal) 100%);
+            color: #fff;
+            text-align: center;
+            padding: 80px 24px 72px;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -.02em;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            opacity: .92;
+        }
+        .badge-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,.15);
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 20px;
+            padding: 8px 18px;
+            font-size: .85rem;
+            font-weight: 500;
+        }
+
+        /* SECTIONS */
+        section { padding: 64px 24px; }
+        .container { max-width: var(--max-w); margin: 0 auto; }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--forest);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 560px;
+            margin: 0 auto 40px;
+        }
+
+        /* FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 24px;
+        }
+        .feature-icon { font-size: 1.8rem; margin-bottom: 12px; }
+        .feature-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--forest);
+        }
+        .feature-card p { font-size: .9rem; color: var(--text-light); }
+
+        /* AGE TIERS */
+        .tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .tier-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        .tier-card .emoji { font-size: 2rem; margin-bottom: 8px; }
+        .tier-card h3 { font-size: 1rem; color: var(--forest); margin-bottom: 4px; }
+        .tier-card p { font-size: .85rem; color: var(--text-light); }
+
+        /* CTA */
+        .cta-section {
+            background: var(--forest);
+            color: #fff;
+            text-align: center;
+            padding: 56px 24px;
+        }
+        .cta-section h2 { font-size: 1.5rem; margin-bottom: 12px; }
+        .cta-section p { opacity: .88; margin-bottom: 4px; font-size: .95rem; }
+
+        /* FOOTER */
+        footer {
+            background: #f5f5f5;
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+            font-size: .82rem;
+            color: var(--text-light);
+        }
+        footer a { color: var(--forest); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { margin-bottom: 8px; }
+        .footer-links a { margin: 0 12px; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.7rem; }
+            .hero { padding: 56px 20px 48px; }
+            section { padding: 48px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">&#127793; BetterNest Kids</a>
+            <div class="nav-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Teach Kids Real-World Money Skills</h1>
+        <p>BetterNest Kids helps children ages 5&ndash;17 earn, save, spend, share, and grow &mdash; all under parent supervision with an age-adaptive experience.</p>
+        <div class="badge-row">
+            <span class="badge">&#127822; Ages 5&ndash;17</span>
+            <span class="badge">&#128274; COPPA Compliant</span>
+            <span class="badge">&#128241; iOS &amp; Android</span>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-sub">Parents set up chores and guardrails. Kids earn, manage money across smart buckets, and learn financial literacy at their own pace.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#128176;</div>
+                    <h3>Earn Through Chores</h3>
+                    <p>Parents assign chores with dollar amounts. Kids complete them, submit for approval, and earn money that auto-splits into buckets.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#129531;</div>
+                    <h3>Smart Buckets</h3>
+                    <p>Earnings divide into Spend, Save, Share, and Grow buckets with age-appropriate ratios &mdash; building balanced money habits from the start.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#127919;</div>
+                    <h3>Savings Goals &amp; Vault</h3>
+                    <p>Kids set goals, track progress, and deposit into a Savings Vault that earns compound interest &mdash; making saving feel rewarding.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#10084;&#65039;</div>
+                    <h3>Giving &amp; Sharing</h3>
+                    <p>Kids explore charitable causes, create gift funds, and join community challenges to learn the joy of giving.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128218;</div>
+                    <h3>Financial Literacy Lessons</h3>
+                    <p>Age-tiered curriculum with interactive lessons, XP progression, streaks, and seven achievement levels from Money Explorer to Money Master.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#129417;</div>
+                    <h3>Ollie &mdash; AI Money Coach</h3>
+                    <p>An optional AI-powered owl coach answers kids' money questions with age-appropriate guidance. All data is anonymized and stored on-device only.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background:#f5f5f5;">
+        <div class="container">
+            <h2 class="section-title">Designed for Every Age</h2>
+            <p class="section-sub">Three age tiers with progressively unlocked features ensure kids get the right experience at every stage.</p>
+            <div class="tiers">
+                <div class="tier-card">
+                    <div class="emoji">&#127807;</div>
+                    <h3>Little (Ages 5&ndash;8)</h3>
+                    <p>Simple chores, basic money concepts, guided experience with playful encouragement.</p>
+                </div>
+                <div class="tier-card">
+                    <div class="emoji">&#127793;</div>
+                    <h3>Tween (Ages 9&ndash;12)</h3>
+                    <p>More autonomy, goal-setting, propose chores, and greater awareness of saving and giving.</p>
+                </div>
+                <div class="tier-card">
+                    <div class="emoji">&#127795;</div>
+                    <h3>Teen (Ages 13&ndash;17)</h3>
+                    <p>Full feature access including simulated investing (Grow bucket) and advanced financial concepts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Built for Parents</h2>
+            <p class="section-sub">You stay in control with a powerful dashboard and flexible settings for every child.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#128202;</div>
+                    <h3>Parent Dashboard</h3>
+                    <p>See all children's activity at a glance &mdash; pending approvals, balances, learning progress, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#9881;&#65039;</div>
+                    <h3>Flexible Controls</h3>
+                    <p>Set custom split ratios, interest rates, donation limits, and toggle features per child.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128200;</div>
+                    <h3>Insights &amp; Reports</h3>
+                    <p>Track chore completion, spending habits, savings trends, and giving impact over time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Coming Soon to iOS &amp; Android</h2>
+        <p>BetterNest Kids is currently in development. Stay tuned for our launch!</p>
+        <p style="margin-top:8px; font-size:.85rem; opacity:.7;">support@evolve-180.com</p>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="mailto:support@evolve-180.com">Contact</a>
+        </div>
+        <p>&copy; 2026 BetterNest Kids. All rights reserved.</p>
+    </footer>
+</body>
+</html>
